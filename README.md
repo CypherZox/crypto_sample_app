@@ -2,7 +2,11 @@
 
 The application follows the Clean Architecture principles. It utilizes the BLoC pattern for state management and includes unit testing for robustness.
 
-![App Overview]([https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/pair.png](https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/crypto_app_sample.mp4))
+
+https://github.com/CypherZox/crypto_sample_app/assets/29386036/34297463-62ed-46b5-be8d-9e1b9bdd0fea
+
+
+
 
 # Installation Guide
 

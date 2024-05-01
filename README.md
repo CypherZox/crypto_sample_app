@@ -2,12 +2,7 @@
 
 The application follows the Clean Architecture principles. It utilizes the BLoC pattern for state management and includes unit testing for robustness.
 
-# Crypto Pairs Feature
-
-## Overview
-
-The Crypto Pairs feature facilitates fetching cryptocurrency pairs and managing user's favorite pairs. It employs a structured architecture consisting of layers for data handling, domain logic, and presentation.
-[]
+![App Overview]([https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/pair.png](https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/crypto_app_sample.mp4))
 
 # Installation Guide
 
@@ -21,10 +16,18 @@ To integrate the Real-time Price Update feature into your Flutter application, f
      ```
 
 2. Generate Code:
-   - Use the following command to generate necessary code files:
+   - Use the following command to generate the necessary code files:
      ```
      flutter pub run build_runner build --delete-conflicting-outputs
      ```
+
+# Crypto Pairs Feature
+
+## Overview
+
+The Crypto Pairs feature facilitates fetching cryptocurrency pairs and managing users' favorite pairs. It employs a structured architecture consisting of layers for data handling, domain logic, and presentation.
+![Crypto Pairs](https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/pair.png)
+
 
 ## Architecture Layers
 
@@ -81,21 +84,21 @@ To integrate the Real-time Price Update feature into your Flutter application, f
 # Pairs Search Feature
 
 This feature enhances the application by enabling users to search for cryptocurrency pairs based on the base asset or coin. It utilizes the BLoC pattern for presentation layer management.
-
+![Coin search](https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/search.png)
 ## Overview
 
-The Pairs Search feature builds upon the existing functionality provided by the Pairs Fetch feature. Users can search for specific cryptocurrency pairs without the need for additional API calls, leveraging the already fetched list of pairs.
+The Pairs Search feature builds upon the existing functionality provided by the Pairs Fetch feature. Users can search for specific cryptocurrency pairs without the need for additional API calls, leveraging the already-fetched list of pairs.
 
 ## Note
 
-The search functionality utilizes the list of pairs fetched by the Pairs Fetch feature. By mapping each pair with real-time websocket stream response, we can conduct searches without relying on additional API calls. This approach optimizes performance and reduces network overhead.
+The search functionality utilizes the list of pairs fetched by the Pairs Fetch feature. We can conduct searches without relying on additional API calls by mapping each pair with real-time WebSocket stream response. This approach optimizes performance and reduces network overhead.
 
-A potential improvement would be to check if there's no data already fetched before initiating a search. In such cases, we can make an initial API call with the initial keystroke of the search term. Subsequent searches can then be conducted locally without the need for additional API calls, as the API returns the same 312 symbols every time.
+A potential improvement would be to check if there's no data already fetched before initiating a search. In such cases, we can make an initial API call with the initial keystroke of the search term. Subsequent searches can then be conducted locally without additional API calls, as the API returns the same 312 symbols every time.
 
 # Real-time Price Update Feature
 
 This feature enhances the application by providing real-time updates for cryptocurrency prices. It utilizes web sockets to fetch price updates and incorporates the BLoC pattern for presentation layer management.
-
+![Real-time Price Update](https://github.com/CypherZox/crypto_sample_app/blob/main/docs-media/real-time.png)
 ## Overview
 
 The Real-time Price Update feature leverages web socket technology to fetch real-time price updates and seamlessly integrates with the existing architecture.
@@ -120,7 +123,7 @@ The Real-time Price Update feature leverages web socket technology to fetch real
 
 ### Bloc
 
-- Utilizes the BLoC pattern for managing the presentation layer, ensuring efficient state management for real-time price updates.
+- Utilizes the BLoC pattern for the presentation layer, ensuring efficient state management for real-time price updates.
 
 ## Description and Notes
 

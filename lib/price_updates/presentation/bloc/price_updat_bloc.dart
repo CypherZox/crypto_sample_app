@@ -23,16 +23,5 @@ class PriceUpdateBloc extends Bloc<PriceUpdateEvent, PriceUpdateState> {
         return PriceUpdatedState(priceList);
       });
     });
-
-    // _priceUpdateUseCase.subscribeToPriceUpdates().listen((data) async {
-    //   // print(json.decode(data));
-    //   final List<PriceUpdate> priceList = json
-    //       .decode(data)
-    //       .map<PriceUpdate>((update) => PriceUpdate.fromJson(update))
-    //       .toList();
-    //   print(priceList);
-
-    //   emit.forEach(PriceInitialState());
-    // });
   }
 }

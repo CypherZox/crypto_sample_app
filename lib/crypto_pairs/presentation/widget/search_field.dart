@@ -37,7 +37,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
     return TextFormField(
       controller: textController,
       focusNode: textFieldFocusNode,
-      autofocus: true,
+      autofocus: false,
       obscureText: false,
       onChanged: (value) {
         widget.onChanged(value);

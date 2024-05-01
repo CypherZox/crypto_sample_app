@@ -14,7 +14,7 @@ class SearchPairsBloc extends Bloc<SearchPairEvent, SearchPairState> {
       final result = pairs
           .where((element) => ((element).baseAsset!)
               .toLowerCase()
-              .contains(query.toLowerCase()))
+              .contains(query.trim().toLowerCase()))
           .toList();
       if (result.isNotEmpty) {
         emit(PairsSearchResultState(result));

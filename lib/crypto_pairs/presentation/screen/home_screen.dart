@@ -89,68 +89,72 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }
                     if (state is PairsLoadedState) {
-                      return SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
-                              child: SearchTextField(
-                                resetSearch: () {
-                                  _searchPairsBloc
-                                      .add(const SearchResetEvent());
-                                },
-                                onChanged: (v) {
-                                  _searchPairsBloc
-                                      .add(SearchPairsEvent(v, state.pairs));
-                                  if (v == '') {
-                                    _searchPairsBloc
-                                        .add(const SearchResetEvent());
-                                  }
-                                },
-                              ),
-                            ),
-                            if (searchState is PairsSearchResultState)
-                              _listOfPairs(searchState.pairs, context,
-                                  pState.priceUpdate, favoriteState),
-                            if (favoriteState is FavoritesPairsLoadedState &&
-                                favoriteState.pairs.isNotEmpty) ...[
-                              const Padding(
-                                padding: EdgeInsets.fromLTRB(24, 8, 0, 0),
-                                child: Text(
-                                  'Favorites',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                              _listOfPairs(favoriteState.pairs, context,
-                                  pState.priceUpdate, favoriteState),
+                      return SafeArea(
+                        bottom: false,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
                               Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                                child: Divider(
-                                  color: Colors.grey.withOpacity(0.2),
+                                    const EdgeInsets.fromLTRB(16, 32, 16, 0),
+                                child: SearchTextField(
+                                  resetSearch: () {
+                                    _searchPairsBloc
+                                        .add(const SearchResetEvent());
+                                  },
+                                  onChanged: (v) {
+                                    _searchPairsBloc
+                                        .add(SearchPairsEvent(v, state.pairs));
+                                    if (v == '') {
+                                      _searchPairsBloc
+                                          .add(const SearchResetEvent());
+                                    }
+                                  },
                                 ),
-                              )
-                            ],
-                            _listOfPairs(state.visiblePairs, context,
-                                pState.priceUpdate, favoriteState),
-                            state.visiblePairs.length != state.pairs.length &&
-                                    searchState is InitialSearchState
-                                ? TextButton(
-                                    onPressed: () {
-                                      _pairsBloc
-                                          .add(const LoadNextPairsEvent());
-                                    },
-                                    child: const Text(
-                                      'Load More',
-                                      style: TextStyle(color: Colors.blue),
-                                    ))
-                                : const SizedBox(
-                                    height: 23,
+                              ),
+                              if (searchState is PairsSearchResultState)
+                                _listOfPairs(searchState.pairs, context,
+                                    pState.priceUpdate, favoriteState),
+                              if (favoriteState is FavoritesPairsLoadedState &&
+                                  favoriteState.pairs.isNotEmpty) ...[
+                                const Padding(
+                                  padding: EdgeInsets.fromLTRB(24, 8, 0, 0),
+                                  child: Text(
+                                    'Favorites',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                          ],
+                                ),
+                                _listOfPairs(favoriteState.pairs, context,
+                                    pState.priceUpdate, favoriteState),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                                  child: Divider(
+                                    color: Colors.grey.withOpacity(0.2),
+                                  ),
+                                )
+                              ],
+                              _listOfPairs(state.visiblePairs, context,
+                                  pState.priceUpdate, favoriteState),
+                              state.visiblePairs.length != state.pairs.length &&
+                                      searchState is InitialSearchState
+                                  ? TextButton(
+                                      onPressed: () {
+                                        _pairsBloc
+                                            .add(const LoadNextPairsEvent());
+                                      },
+                                      child: const Text(
+                                        'Load More',
+                                        style: TextStyle(color: Colors.blue),
+                                      ))
+                                  : const SizedBox(
+                                      height: 23,
+                                    ),
+                            ],
+                          ),
                         ),
                       );
                     }

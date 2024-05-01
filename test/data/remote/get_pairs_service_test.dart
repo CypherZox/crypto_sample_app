@@ -19,7 +19,7 @@ void main() {
     mockPairsRequest = MockPairsRequest();
   });
 
-  test('when getPairs is called it should return a list of getPairs', () async {
+  test('when getPairs is called it should return a list of Pairs', () async {
     when(() => mockPairsRequest.fetchPairs())
         .thenAnswer((_) async => pairSymbols);
     final List<PairSymbol> response = await mockPairsRequest.fetchPairs();
